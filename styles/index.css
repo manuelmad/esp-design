@@ -1,38 +1,99 @@
-section {
-	width: 100%;
-	margin-top: 40px;
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
-div {
-	width: 300px;
+html {
+	font-size: 62.5%;
+	font-family: 'Quicksand', sans-serif;
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+:root {
+    --very-light-gray:#C7C7C7;
+    --text-input-field: #F7F7F7;
+    --hospital-green: #ACD982;
+    --very-light-blue:#bad7f1;
+    --dark-blue: #252C5A;
+    --white: #FFFFFF;
+    --black: #000000;
+    --ss: 1.2rem;
+    --sm: 1.4rem;
+    --md: 1.5rem;
+    --lg: 1.8rem;
+}
+
+header {
+	width: 100%;
+	background-color: var(--dark-blue);
+	color: var(--white);
+	padding: 1rem 0;
+	text-align: center;
+	margin-bottom: 2rem;
+	font-size: var(--sm);
+	position: sticky;
+	top: 0;
+}
+
+header img {
+	width: 10rem;
+	height: auto;
+}
+
+.app-name {
+	margin-top: 1rem;
+}
+
+main {
+	font-size: var(--sm);
+	margin-bottom: 4rem;
+}
+
+section {
+	width: 100%;
+	margin-top: 4rem;
+}
+
+main div {
+	width: 30rem;
 	margin: 0 auto;
+	border: 0.5rem solid var(--hospital-green);
+	padding: 1rem;
 }
 
 p {
-	width: 200px;
+	width: 20rem;
 	margin: 0 auto;
 }
 
 label {
 	display: block;
-	margin-top: 20px;
+	margin-top: 2rem;
 }
 
 input {
-	width: 200px;
-	height: 30px;
-	border-radius: 5px;
-	margin-top: 10px;
-	padding: 5px;
+	width: 20rem;
+	height: 4rem;
+	border-radius: 0.5rem;
+	margin-top: 1rem;
+	padding: 0.5rem;
+	border: 0.1rem solid var(--very-light-gray);
+	background-color: var(--text-input-field);
+}
+
+input:hover {
+	border: 0.1rem solid var(--dark-blue);
 }
 
 button {
-	width: 212px;
-	height: 40px;
+	width: 20rem;
+	height: 4rem;
+	cursor: pointer;
 }
 
 .btn-container {
-	margin-top: 30px;
+	margin-top: 3rem;
 	text-align: center;
 }
 
@@ -40,31 +101,54 @@ button {
 	display: none;
 }
 
+/* #general_results {
+	background-color: var(--very-light-gray);
+	background-image: url('../imgs/logo.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 28rem;
+} */
+
+#general_results ul li {
+	margin-left: 1rem;
+}
+
+#general_results p {
+	padding: 2rem 1rem 1rem 1rem;
+	font-weight: bold;
+	width: 100%;
+}
 .msg-container {
 	display: flex;
 	justify-content: center;
 	align-content: center;
-	width: 300px;
-	height: 100px;
+	width: 30rem;
+	height: 10rem;
 	position: absolute;
 	background-color: red;
 	color: white;
-	border-radius: 5px;
+	border-radius: 0.5rem;
 }
 
 .msg-container p {
 	display: flex;
-	padding: 5px;
+	padding: 0.5rem;
 	text-align: center;
 	align-items: center;
+	font-size: var(--md);
 }
 
 @media (min-width: 600px) {
-	div {
-		width: 500px;
+	
+	main {
+		font-size: var(--md);
+	}
+
+	main div {
+		width: 50rem;
 	}
 
 	.description-p {
-		width: 400px;
+		width: 40rem;
 	}
 }

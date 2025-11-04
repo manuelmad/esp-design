@@ -2,211 +2,226 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manuel Araujo Web Page">
+    <meta name= "robots" content= "index, follow">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
 	<title>BES DESIGN</title>
 	<link rel="stylesheet" type="text/css" href="./styles/index.css">
 </head>
 <body id="body">
-	<section class="well-data">
-		<div>
-			<p>
-				<label for="wellhead_tbg_pressure">Presión de tubing en cabezal (lpc.)</label>
-				<input type="number" id="wellhead_tbg_pressure">
-			</p>
-			<p>
-				<label for="test_rate">Tasa de prueba (BPD)</label>
-				<input type="number" id="test_rate">
-			</p>
-			<p>
-				<label for="test_pressure">Presión de prueba (lpc.)</label>
-				<input type="number" id="test_pressure">
-			</p>
-			<p>
-				<label for="datum_depth">Profundidad del Datum (pies)</label>
-				<input type="number" id="datum_depth">
-			</p>
-			<p>
-				<label for="water_percentage">% de Agua (%)</label>
-				<input type="number" id="water_percentage">
-			</p>
-			<p>
-				<label for="water_sg">Gravedad específica del agua (adim.)</label>
-				<input type="number" id="water_sg">
-			</p>
-			<p>
-				<label for="oil_sg">Gravedad específica del petróleo (adim.)</label>
-				<input type="number" id="oil_sg">
-			</p>
-			<p>
-				<label for="bottom_temp">Temperatura de fondo (°F)</label>
-				<input type="number" id="bottom_temp">
-			</p>
-			<p>
-				<label for="static_bottomhole_press">Presión de fondo estática (lpc.)</label>
-				<input type="number" id="static_bottomhole_press">
-			</p>
-			<p>
-				<label for="pump_setting_depth">Profundidad de asentamiento de la bomba (pies)</label>
-				<input type="number" id="pump_setting_depth">
-			</p>
-			<p>
-				<label for="desired_prod_rate">Tasa de producción deseada (BPD)</label>
-				<input type="number" id="desired_prod_rate">
-			</p>
-			<p>
-				<label for="csg_od">Diámetro externo del revestidor (pulg.)</label>
-				<input type="text" id="csg_od">
-			</p>
-			<p>
-				<label for="csg_nom_weight">Peso nominal del revestidor (lbf./pie)</label>
-				<input type="number" id="csg_nom_weight">
-			</p>
-			<p>
-				<label for="tbg_od">Diámetro externo del tubing (pulg.)</label>
-				<input type="text" id="tbg_od">
-			</p>
-			<p>
-				<label for="tbg_nom_weight">Peso nominal del tubing (lbf./pie)</label>
-				<input type="number" id="tbg_nom_weight">
-			</p>
-			<p>
-				<label for="tbg_id">Diámetro interno del tubing (pulg.)</label>
-				<input type="number" id="tbg_id">
-			</p>
-			<p class="btn-container">
-				<button id="tdh_calc_btn">Calcular TDH</button>
-			</p>
-		</div>
-	</section>
-	<section id="series_section">
-		<div>
-			<p id="tdh_btn_results" class="description-p"></p>
-			<p>
-				<label for="motor_series">Serie del motor</label>
-				<input type="number" id="motor_series">
-			</p>
-			<p>
-				<label for="seal_series">Serie del sello</label>
-				<input type="number" id="seal_series">
-			</p>
-			<p>
-				<label for="pump_series">Serie de la bomba</label>
-				<input type="number" id="pump_series">
-			</p>
-			<p class="btn-container">
-				<button id="series_btn">Cargar series</button>
-			</p>
-		</div>
-	</section>
-	<section id="pump_model_section">
-		<div>
-			<p id="pump_model_description" class="description-p"></p>
-			<p>
-				<label for="pump_model">Modelo de la bomba</label>
-				<input type="text" id="pump_model">
-			</p>
-			<p class="btn-container">
-				<button id="model_btn">Cargar modelo</button>
-			</p>
-		</div>
-	</section>
-	<section id="pump_performance_section">
-		<div>
-			<p id="pump_performance_description" class="description-p"></p>
-			<p>
-				<label for="head_per_stg">Cabezal por etapa (pies/etapa)</label>
-				<input type="number" id="head_per_stg">
-			</p>
-			<p>
-				<label for="bhp_per_stg">BHP por etapa (BHP/etapa)</label>
-				<input type="number" id="bhp_per_stg">
-			</p>
-			<p class="btn-container">
-				<button id="performance_btn">Cargar desempeño de la bomba</button>
-			</p>
-		</div>
-	</section>
-	<section id="seal_hp_section">
-		<div>
-			<p id="seal_hp_description" class="description-p"></p>
-			<p>
-				<label for="seal_hp">Potencia requerida por los sellos (HP)</label>
-				<input type="number" id="seal_hp">
-			</p>
-			<p class="btn-container">
-				<button id="seal_hp_btn">Cargar potencia de los sellos</button>
-			</p>
-		</div>
-	</section>
-	<section id="motor_section">
-		<div>
-			<p id="motor_description" class="description-p"></p>
-			<p>
-				<label for="motor_hp">Potencia del motor (HP)</label>
-				<input type="number" id="motor_hp">
-			</p>
-			<p>
-				<label for="motor_volts">Voltaje del motor (volts)</label>
-				<input type="number" id="motor_volts">
-			</p>
-			<p>
-				<label for="motor_amps">Corriente del motor (amps)</label>
-				<input type="number" id="motor_amps">
-			</p>
-			<p>
-				<label for="motor_lenght">Longitud del motor (pies)</label>
-				<input type="number" id="motor_lenght">
-			</p>
-			<p>
-				<label for="motor_weight">Peso del motor (lbf.)</label>
-				<input type="number" id="motor_weight">
-			</p>
-			<p class="btn-container">
-				<button id="motor_btn">Cargar características del motor</button>
-			</p>
-		</div>
-	</section>
-	<section id="cable_section">
-		<div>
-			<p id="cable_description_1" class="description-p"></p>
-			<p>
-				<label for="cable_type">Tipo de cable</label>
-				<input type="text" id="cable_type">
-			</p>
-			<p>
-				<label for="cable_voltage_drop">Caída de voltage del cable (volts/1000 pies)</label>
-				<input type="number" id="cable_voltage_drop">
-			</p>
-			<p class="description-p">
-				<label id="cable_description_2"></label>
-			</p>
-			<p>
-				<label for="cable_operating_temp">Temperatura operacional del cable (°F)</label>
-				<input type="number" id="cable_operating_temp">
-			</p>
-			<p class="description-p">
-				<label id="cable_description_3"></label>
-			</p>
-			<p>
-				<label for="temp_correction_factor">Factor de corrección por temperatura (adim.)</label>
-				<input type="number" id="temp_correction_factor">
-			</p>
-			<p>
-				<label for="cable_surface_lenght">Longitud del cable en conexiones superficiales (pies)</label>
-				<input type="number" id="cable_surface_lenght">
-			</p>
-			<p class="btn-container">
-				<button id="cable_btn">Cargar características del cable</button>
-			</p>
-		</div>
-	</section>
-	<section>
-		<div id="general_results" class="description-p">
-			
-		</div>
-	</section>
-
+	<header>
+			<P>
+				<img src="./imgs/logo.png" alt="manuel araujo logo" id="logo-img">
+			</P>
+			<p class="app-name">DISEÑO DE EQUIPO BES</p>
+	</header>
+	<main>
+		<section class="well-data">
+			<div>
+				<p>
+					<label for="wellhead_tbg_pressure">Presión de tubing en cabezal (lpc.)</label>
+					<input type="number" id="wellhead_tbg_pressure">
+				</p>
+				<p>
+					<label for="test_rate">Tasa de prueba (BPD)</label>
+					<input type="number" id="test_rate">
+				</p>
+				<p>
+					<label for="test_pressure">Presión de prueba (lpc.)</label>
+					<input type="number" id="test_pressure">
+				</p>
+				<p>
+					<label for="datum_depth">Profundidad del Datum (pies)</label>
+					<input type="number" id="datum_depth">
+				</p>
+				<p>
+					<label for="water_percentage">% de Agua (%)</label>
+					<input type="number" id="water_percentage">
+				</p>
+				<p>
+					<label for="water_sg">Gravedad específica del agua (adim.)</label>
+					<input type="number" id="water_sg">
+				</p>
+				<p>
+					<label for="oil_sg">Gravedad específica del petróleo (adim.)</label>
+					<input type="number" id="oil_sg">
+				</p>
+				<p>
+					<label for="bottom_temp">Temperatura de fondo (°F)</label>
+					<input type="number" id="bottom_temp">
+				</p>
+				<p>
+					<label for="static_bottomhole_press">Presión de fondo estática (lpc.)</label>
+					<input type="number" id="static_bottomhole_press">
+				</p>
+				<p>
+					<label for="pump_setting_depth">Profundidad de asentamiento de la bomba (pies)</label>
+					<input type="number" id="pump_setting_depth">
+				</p>
+				<p>
+					<label for="desired_prod_rate">Tasa de producción deseada (BPD)</label>
+					<input type="number" id="desired_prod_rate">
+				</p>
+				<p>
+					<label for="csg_od">Diámetro externo del revestidor (pulg.)</label>
+					<input type="text" id="csg_od">
+				</p>
+				<p>
+					<label for="csg_nom_weight">Peso nominal del revestidor (lbf./pie)</label>
+					<input type="number" id="csg_nom_weight">
+				</p>
+				<p>
+					<label for="tbg_od">Diámetro externo del tubing (pulg.)</label>
+					<input type="text" id="tbg_od">
+				</p>
+				<p>
+					<label for="tbg_nom_weight">Peso nominal del tubing (lbf./pie)</label>
+					<input type="number" id="tbg_nom_weight">
+				</p>
+				<p>
+					<label for="tbg_id">Diámetro interno del tubing (pulg.)</label>
+					<input type="number" id="tbg_id">
+				</p>
+				<p class="btn-container">
+					<button id="tdh_calc_btn">Calcular TDH</button>
+				</p>
+			</div>
+		</section>
+		<section id="series_section">
+			<div>
+				<p id="tdh_btn_results" class="description-p"></p>
+				<p>
+					<label for="motor_series">Serie del motor</label>
+					<input type="number" id="motor_series">
+				</p>
+				<p>
+					<label for="seal_series">Serie del sello</label>
+					<input type="number" id="seal_series">
+				</p>
+				<p>
+					<label for="pump_series">Serie de la bomba</label>
+					<input type="number" id="pump_series">
+				</p>
+				<p class="btn-container">
+					<button id="series_btn">Cargar series</button>
+				</p>
+			</div>
+		</section>
+		<section id="pump_model_section">
+			<div>
+				<p id="pump_model_description" class="description-p"></p>
+				<p>
+					<label for="pump_model">Modelo de la bomba</label>
+					<input type="text" id="pump_model">
+				</p>
+				<p class="btn-container">
+					<button id="model_btn">Cargar modelo</button>
+				</p>
+			</div>
+		</section>
+		<section id="pump_performance_section">
+			<div>
+				<p id="pump_performance_description" class="description-p"></p>
+				<p>
+					<label for="head_per_stg">Cabezal por etapa (pies/etapa)</label>
+					<input type="number" id="head_per_stg">
+				</p>
+				<p>
+					<label for="bhp_per_stg">BHP por etapa (BHP/etapa)</label>
+					<input type="number" id="bhp_per_stg">
+				</p>
+				<p class="btn-container">
+					<button id="performance_btn">Cargar desempeño de la bomba</button>
+				</p>
+			</div>
+		</section>
+		<section id="seal_hp_section">
+			<div>
+				<p id="seal_hp_description" class="description-p"></p>
+				<p>
+					<label for="seal_hp">Potencia requerida por los sellos (HP)</label>
+					<input type="number" id="seal_hp">
+				</p>
+				<p class="btn-container">
+					<button id="seal_hp_btn">Cargar potencia de los sellos</button>
+				</p>
+			</div>
+		</section>
+		<section id="motor_section">
+			<div>
+				<p id="motor_description" class="description-p"></p>
+				<p>
+					<label for="motor_hp">Potencia del motor (HP)</label>
+					<input type="number" id="motor_hp">
+				</p>
+				<p>
+					<label for="motor_volts">Voltaje del motor (volts)</label>
+					<input type="number" id="motor_volts">
+				</p>
+				<p>
+					<label for="motor_amps">Corriente del motor (amps)</label>
+					<input type="number" id="motor_amps">
+				</p>
+				<p>
+					<label for="motor_lenght">Longitud del motor (pies)</label>
+					<input type="number" id="motor_lenght">
+				</p>
+				<p>
+					<label for="motor_weight">Peso del motor (lbf.)</label>
+					<input type="number" id="motor_weight">
+				</p>
+				<p class="btn-container">
+					<button id="motor_btn">Cargar características del motor</button>
+				</p>
+			</div>
+		</section>
+		<section id="cable_section">
+			<div>
+				<p id="cable_description_1" class="description-p"></p>
+				<p>
+					<label for="cable_type">Tipo de cable</label>
+					<input type="text" id="cable_type">
+				</p>
+				<p>
+					<label for="cable_voltage_drop">Caída de voltage del cable (volts/1000 pies)</label>
+					<input type="number" id="cable_voltage_drop">
+				</p>
+				<p class="description-p">
+					<label id="cable_description_2"></label>
+				</p>
+				<p>
+					<label for="cable_operating_temp">Temperatura operacional del cable (°F)</label>
+					<input type="number" id="cable_operating_temp">
+				</p>
+				<p class="description-p">
+					<label id="cable_description_3"></label>
+				</p>
+				<p>
+					<label for="temp_correction_factor">Factor de corrección por temperatura (adim.)</label>
+					<input type="number" id="temp_correction_factor">
+				</p>
+				<p>
+					<label for="cable_surface_lenght">Longitud del cable en conexiones superficiales (pies)</label>
+					<input type="number" id="cable_surface_lenght">
+				</p>
+				<p class="btn-container">
+					<button id="cable_btn">Cargar características del cable</button>
+				</p>
+			</div>
+		</section>
+		<section>
+			<div id="general_results" class="description-p">
+				
+			</div>
+		</section>
+	</main>
 	<script type="text/javascript" src="./src/datamissing.js"></script>
 	<script type="text/javascript" src="./src/index.js"></script>
-
 </body>
 </html>

@@ -34,6 +34,12 @@ const motor_amps = document.getElementById('motor_amps');
 const motor_lenght = document.getElementById('motor_lenght');
 const motor_weight = document.getElementById('motor_weight');
 
+const cable_type = document.getElementById('cable_type');
+const cable_voltage_drop = document.getElementById('cable_voltage_drop');
+const cable_operating_temp = document.getElementById('cable_operating_temp');
+const temp_correction_factor = document.getElementById('temp_correction_factor');
+const cable_surface_lenght = document.getElementById('cable_surface_lenght');
+
 // Data Object
 let data_object = {
 	csg_object: {
@@ -213,6 +219,22 @@ function calculateTDH() {
 	const series_section = document.getElementById('series_section');
 	series_section.style.display = 'block';
 
+	// Code to scroll to the position of the new section
+	const element = document.querySelector('#series_section');
+	const offset = 200;
+	const bodyRect = document.body.getBoundingClientRect().top;
+	const elementRect = element.getBoundingClientRect().top;
+	const elementPosition = elementRect - bodyRect;
+	const offsetPosition = elementPosition + offset;
+	
+	// A little delay while the section is shown and able to go there
+	setTimeout(()=> {
+		window.scrollTo({
+			top: offsetPosition,
+			behavior: 'smooth'
+		});
+	}, 300);
+
 }
 
 // Accessing tdh button and adding calculation event
@@ -249,6 +271,22 @@ series_btn.addEventListener('click', ()=> {
 		Escoja de la tabla del fabricante de equipos BES el modelo de bomba serie ${pumpSeries} cuyo rango de tasa operativa sea el más adecuado para la tasa de producción deseada (${data_object.desired_prod_rate} BPD).
 	`;
 	pump_model_section.style.display = 'block';
+
+	// Code to scroll to the position of the new section
+	const element = document.querySelector('#pump_model_section');
+	const offset = 200;
+	const bodyRect = document.body.getBoundingClientRect().top;
+	const elementRect = element.getBoundingClientRect().top;
+	const elementPosition = elementRect - bodyRect;
+	const offsetPosition = elementPosition + offset;
+	
+	// A little delay while the section is shown and able to go there
+	setTimeout(()=> {
+		window.scrollTo({
+			top: offsetPosition,
+			behavior: 'smooth'
+		});
+	}, 300);
 });
 
 // Accessing model button and adding calculation event
@@ -280,6 +318,22 @@ model_btn.addEventListener('click', ()=> {
 		Utilice la curva de desempeño de la bomba serie ${pumpSeries}, modelo ${pumpModel} @ 60Hz para revestidor de ${data_object.csg_object.od}" y determine el cabezal por etapa y el BHP por etapa para lograr la tasa de producción deseada (${data_object.desired_prod_rate} BPD).
 	`;
 	pump_performance_section.style.display = 'block';
+
+	// Code to scroll to the position of the new section
+	const element = document.querySelector('#pump_performance_section');
+	const offset = 200;
+	const bodyRect = document.body.getBoundingClientRect().top;
+	const elementRect = element.getBoundingClientRect().top;
+	const elementPosition = elementRect - bodyRect;
+	const offsetPosition = elementPosition + offset;
+	
+	// A little delay while the section is shown and able to go there
+	setTimeout(()=> {
+		window.scrollTo({
+			top: offsetPosition,
+			behavior: 'smooth'
+		});
+	}, 300);
 });
 
 // Accessing performance button and adding calculation event
@@ -313,6 +367,21 @@ performance_btn.addEventListener('click', ()=> {
 	`;
 	seal_hp_section.style.display = 'block';
 
+	// Code to scroll to the position of the new section
+	const element = document.querySelector('#seal_hp_section');
+	const offset = 200;
+	const bodyRect = document.body.getBoundingClientRect().top;
+	const elementRect = element.getBoundingClientRect().top;
+	const elementPosition = elementRect - bodyRect;
+	const offsetPosition = elementPosition + offset;
+	
+	// A little delay while the section is shown and able to go there
+	setTimeout(()=> {
+		window.scrollTo({
+			top: offsetPosition,
+			behavior: 'smooth'
+		});
+	}, 300);
 });
 
 // Accessing seal hp button and adding calculation event
@@ -336,15 +405,15 @@ seal_hp_btn.addEventListener('click', ()=> {
 		return;
 	}
 
-	console.log('head_per_stg.value',head_per_stg.value)
+	//console.log('head_per_stg.value',head_per_stg.value)
 	let reqStages = data_object.tdh / Number(head_per_stg.value);
-	console.log('reqStages', reqStages)
+	//console.log('reqStages', reqStages)
 	data_object.pump_object.stages = reqStages;
-	console.log(data_object.pump_object.stages);
+	//console.log(data_object.pump_object.stages);
 
 	let reqBHP = Number(bhp_per_stg.value) * reqStages * data_object.composite_sg;
 	data_object.pump_object.bhp = reqBHP;
-	console.log(data_object.pump_object.bhp);
+	//console.log(data_object.pump_object.bhp);
 
 	const motor_section = document.getElementById('motor_section');
 	let motorSeries = Number(motor_series.value);
@@ -358,6 +427,22 @@ seal_hp_btn.addEventListener('click', ()=> {
 		Escoja de la tabla del fabricante el motor serie ${motorSeries} que proporcione los HP totales requeridos (${totalHP.toFixed(1)} HP).
 	`;
 	motor_section.style.display = 'block';
+
+	// Code to scroll to the position of the new section
+	const element = document.querySelector('#motor_section');
+	const offset = 200;
+	const bodyRect = document.body.getBoundingClientRect().top;
+	const elementRect = element.getBoundingClientRect().top;
+	const elementPosition = elementRect - bodyRect;
+	const offsetPosition = elementPosition + offset;
+	
+	// A little delay while the section is shown and able to go there
+	setTimeout(()=> {
+		window.scrollTo({
+			top: offsetPosition,
+			behavior: 'smooth'
+		});
+	}, 300);
 
 });
 
@@ -391,7 +476,7 @@ motor_btn.addEventListener('click', ()=> {
 
 	const cable_description_1 = document.getElementById('cable_description_1');
 	cable_description_1.innerHTML = `
-		Utilice la gráfica de tipos de cable del fabricante, con la corriente del motor (${motor_amps.value} amps) y escoja un tipo de cable cuya línea, al ser intercectada, arroje un valor de caída de voltaje menor a 30 volts/1000pies.
+		Utilice la gráfica de tipos de cable del fabricante, con la corriente del motor (${motor_amps.value} amps) y escoja un tipo de cable cuya línea, al ser intersectada, arroje un valor de caída de voltaje menor a 30 volts/1000pies.
 	`;
 
 	const cable_description_2 = document.getElementById('cable_description_2');
@@ -404,6 +489,22 @@ motor_btn.addEventListener('click', ()=> {
 		Determine el factor de corrección de temperatura utilizando la tabla correspondiente según el valor de temperatura operacional del cable.
 	`;
 	cable_section.style.display = 'block';
+
+	// Code to scroll to the position of the new section
+	const element = document.querySelector('#cable_section');
+	const offset = 200;
+	const bodyRect = document.body.getBoundingClientRect().top;
+	const elementRect = element.getBoundingClientRect().top;
+	const elementPosition = elementRect - bodyRect;
+	const offsetPosition = elementPosition + offset;
+	
+	// A little delay while the section is shown and able to go there
+	setTimeout(()=> {
+		window.scrollTo({
+			top: offsetPosition,
+			behavior: 'smooth'
+		});
+	}, 300);
 });
 
 // Accessing cable button and adding calculation event
@@ -500,6 +601,24 @@ cable_btn.addEventListener('click', ()=> {
 	`;
 	
 	general_results.style.display = 'block';
+
+	// Code to scroll to the position of the new section
+	const element = document.querySelector('#general_results');
+	const offset = 200;
+	const bodyRect = document.body.getBoundingClientRect().top;
+	const elementRect = element.getBoundingClientRect().top;
+	const elementPosition = elementRect - bodyRect;
+	const offsetPosition = elementPosition + offset;
+	
+	// A little delay while the section is shown and able to go there
+	setTimeout(()=> {
+		window.scrollTo({
+			top: offsetPosition,
+			behavior: 'smooth'
+		});
+	}, 300);
+
+	// I can try late to add a link (with HTML2canvas) to download the results as img.
 });
 
 

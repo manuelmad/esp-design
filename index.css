@@ -1,0 +1,70 @@
+section {
+	width: 100%;
+	margin-top: 40px;
+}
+
+div {
+	width: 300px;
+	margin: 0 auto;
+}
+
+p {
+	width: 200px;
+	margin: 0 auto;
+}
+
+label {
+	display: block;
+	margin-top: 20px;
+}
+
+input {
+	width: 200px;
+	height: 30px;
+	border-radius: 5px;
+	margin-top: 10px;
+	padding: 5px;
+}
+
+button {
+	width: 200px;
+	height: 40px;
+}
+
+.btn-container {
+	margin-top: 30px;
+	text-align: center;
+}
+
+#series_section, #pump_model_section, #pump_performance_section, #seal_hp_section, #motor_section, #cable_section, #general_results {
+	display: none;
+}
+
+.msg-container {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	width: 300px;
+	height: 100px;
+	position: absolute;
+	background-color: red;
+	color: white;
+	border-radius: 5px;
+}
+
+.msg-container p {
+	display: flex;
+	padding: 5px;
+	text-align: center;
+	align-items: center;
+}
+
+@media (min-width: 600px) {
+	div {
+		width: 500px;
+	}
+
+	.description-p {
+		width: 400px;
+	}
+}

@@ -280,16 +280,6 @@ model_btn.addEventListener('click', ()=> {
 		Utilice la curva de desempeño de la bomba serie ${pumpSeries}, modelo ${pumpModel} @ 60Hz para revestidor de ${data_object.csg_object.od}" y determine el cabezal por etapa y el BHP por etapa para lograr la tasa de producción deseada (${data_object.desired_prod_rate} BPD).
 	`;
 	pump_performance_section.style.display = 'block';
-
-	console.log('head_per_stg.value',head_per_stg.value)
-	let reqStages = data_object.tdh / Number(head_per_stg.value);
-	console.log('reqStages', reqStages)
-	data_object.pump_object.stages = reqStages;
-	console.log(data_object.pump_object.stages)
-
-	let reqBHP = Number(bhp_per_stg.value) * reqStages * data_object.composite_sg;
-	data_object.pump_object.bhp = reqBHP;
-	console.log(data_object.pump_object.bhp)
 });
 
 // Accessing performance button and adding calculation event
@@ -345,6 +335,16 @@ seal_hp_btn.addEventListener('click', ()=> {
 	if(check) {
 		return;
 	}
+
+	console.log('head_per_stg.value',head_per_stg.value)
+	let reqStages = data_object.tdh / Number(head_per_stg.value);
+	console.log('reqStages', reqStages)
+	data_object.pump_object.stages = reqStages;
+	console.log(data_object.pump_object.stages);
+
+	let reqBHP = Number(bhp_per_stg.value) * reqStages * data_object.composite_sg;
+	data_object.pump_object.bhp = reqBHP;
+	console.log(data_object.pump_object.bhp);
 
 	const motor_section = document.getElementById('motor_section');
 	let motorSeries = Number(motor_series.value);

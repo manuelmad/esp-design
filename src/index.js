@@ -172,16 +172,17 @@ function calculateTDH() {
 		return;
 	}
 
-	// Calculating IP
+	// Calculating IP (@ test conditions)
 	let productivity_index = data_object.test_rate / (data_object.static_bottomhole_press - data_object.test_pressure);
 	data_object.ip = productivity_index;
 
-	// Calculating Well Flowing Pressure
+	// Calculating Well Flowing Pressure (@ desired prod rate)
 	let well_flowing_pressure = data_object.static_bottomhole_press - (data_object.desired_prod_rate / productivity_index);
 
 	// Calculating Composite Specific Gravity
 	let composite_sg = data_object.water_sg * (data_object.water_percentage / 100) + data_object.oil_sg * ((100-data_object.water_percentage)/100);
 	data_object.composite_sg = composite_sg;
+
 	// Calculating pressure in Datum - pump setting depths difference
 	let datum_pump_diff_pressure = (data_object.datum_depth - data_object.pump_setting_depth) * composite_sg / 2.31;
 
@@ -221,7 +222,7 @@ function calculateTDH() {
 
 	// Code to scroll to the position of the new section
 	const element = document.querySelector('#series_section');
-	const offset = 200;
+	const offset = 100;
 	const bodyRect = document.body.getBoundingClientRect().top;
 	const elementRect = element.getBoundingClientRect().top;
 	const elementPosition = elementRect - bodyRect;
@@ -274,7 +275,7 @@ series_btn.addEventListener('click', ()=> {
 
 	// Code to scroll to the position of the new section
 	const element = document.querySelector('#pump_model_section');
-	const offset = 200;
+	const offset = 100;
 	const bodyRect = document.body.getBoundingClientRect().top;
 	const elementRect = element.getBoundingClientRect().top;
 	const elementPosition = elementRect - bodyRect;
@@ -321,7 +322,7 @@ model_btn.addEventListener('click', ()=> {
 
 	// Code to scroll to the position of the new section
 	const element = document.querySelector('#pump_performance_section');
-	const offset = 200;
+	const offset = 100;
 	const bodyRect = document.body.getBoundingClientRect().top;
 	const elementRect = element.getBoundingClientRect().top;
 	const elementPosition = elementRect - bodyRect;
@@ -369,7 +370,7 @@ performance_btn.addEventListener('click', ()=> {
 
 	// Code to scroll to the position of the new section
 	const element = document.querySelector('#seal_hp_section');
-	const offset = 200;
+	const offset = 100;
 	const bodyRect = document.body.getBoundingClientRect().top;
 	const elementRect = element.getBoundingClientRect().top;
 	const elementPosition = elementRect - bodyRect;
@@ -430,7 +431,7 @@ seal_hp_btn.addEventListener('click', ()=> {
 
 	// Code to scroll to the position of the new section
 	const element = document.querySelector('#motor_section');
-	const offset = 200;
+	const offset = 100;
 	const bodyRect = document.body.getBoundingClientRect().top;
 	const elementRect = element.getBoundingClientRect().top;
 	const elementPosition = elementRect - bodyRect;
@@ -492,7 +493,7 @@ motor_btn.addEventListener('click', ()=> {
 
 	// Code to scroll to the position of the new section
 	const element = document.querySelector('#cable_section');
-	const offset = 200;
+	const offset = 100;
 	const bodyRect = document.body.getBoundingClientRect().top;
 	const elementRect = element.getBoundingClientRect().top;
 	const elementPosition = elementRect - bodyRect;
@@ -604,7 +605,7 @@ cable_btn.addEventListener('click', ()=> {
 
 	// Code to scroll to the position of the new section
 	const element = document.querySelector('#general_results');
-	const offset = 200;
+	const offset = 100;
 	const bodyRect = document.body.getBoundingClientRect().top;
 	const elementRect = element.getBoundingClientRect().top;
 	const elementPosition = elementRect - bodyRect;

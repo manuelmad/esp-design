@@ -71,6 +71,7 @@ let data_object = {
 	pump_setting_depth: 0, // 5200 ft
 	desired_prod_rate: 0, // 2000 bpd
 	ip: 0,
+	pwf: 0,
 	tdh: 0,
 	composite_sg: 0,
 	hp: 0,
@@ -103,6 +104,7 @@ function clearValues() {
 	data_object.pump_setting_depth = 0;
 	data_object.desired_prod_rate = 0;
 	data_object.ip = 0;
+	data_object.pwf = 0;
 	data_object.tdh = 0;
 	data_object.composite_sg = 0;
 	data_object.hp = 0;
@@ -178,6 +180,7 @@ function calculateTDH() {
 
 	// Calculating Well Flowing Pressure (@ desired prod rate)
 	let well_flowing_pressure = data_object.static_bottomhole_press - (data_object.desired_prod_rate / productivity_index);
+	data_object.pwf = well_flowing_pressure;
 
 	// Calculating Composite Specific Gravity
 	let composite_sg = data_object.water_sg * (data_object.water_percentage / 100) + data_object.oil_sg * ((100-data_object.water_percentage)/100);
@@ -563,6 +566,8 @@ cable_btn.addEventListener('click', ()=> {
 		<p>Data General:</p>
 		<ul>
 			<li>IP = ${data_object.ip.toFixed(1)} BPD/lpc.</li>
+			<li>Q deseada = ${data_object.desired_prod_rate} BPD.</li>
+			<li>Pwf = ${data_object.pwf.toFixed(0)} lpc (@${data_object.desired_prod_rate} BPD).</li>
 			<li>TDH = ${data_object.tdh.toFixed(1)} pies.</li>
 			<li>PIP = ${data_object.pump_object.pip.toFixed(1)} lpc.</li>
 		</ul>
